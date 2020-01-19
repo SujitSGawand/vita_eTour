@@ -1,0 +1,22 @@
+<p>
+  category-sub-category works!
+</p>
+<div>
+  <table>
+      <tr>
+          <td>catsubid</td>
+          <td>categoryid</td>
+          <td>categoryname</td>
+         
+      </tr>
+      <ng-container *ngFor="let cat of categorysubcategories">
+          <tr>
+              <td>{{cat.catsubid}}</td>
+              <td>{{cat.categoryid}}</td>
+              <td>{{cat.categoryname | uppercase}}</td>
+              
+          </tr>
+          <img src="{{cat.categoryimage}}">
+      </ng-container> 
+  </table>
+</div>

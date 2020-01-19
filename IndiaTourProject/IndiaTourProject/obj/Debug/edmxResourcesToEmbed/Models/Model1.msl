@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IndiaTourModelStoreContainer" CdmEntityContainer="IndiaTourEntitiesContext">
+    <EntitySetMapping Name="BookingDetails">
+      <EntityTypeMapping TypeName="IndiaTourModel.BookingDetail">
+        <MappingFragment StoreEntitySet="BookingDetails">
+          <ScalarProperty Name="bookingid" ColumnName="bookingid" />
+          <ScalarProperty Name="bookingdate" ColumnName="bookingdate" />
+          <ScalarProperty Name="passengerid" ColumnName="passengerid" />
+          <ScalarProperty Name="activestatus" ColumnName="activestatus" />
+          <ScalarProperty Name="datepackageid" ColumnName="datepackageid" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategorySubCategories">
+      <EntityTypeMapping TypeName="IndiaTourModel.CategorySubCategory">
+        <MappingFragment StoreEntitySet="CategorySubCategories">
+          <ScalarProperty Name="catsubid" ColumnName="catsubid" />
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+          <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+          <ScalarProperty Name="categoryimage" ColumnName="categoryimage" />
+          <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
+          <ScalarProperty Name="subcategoryname" ColumnName="subcategoryname" />
+          <ScalarProperty Name="subcategoryimage" ColumnName="subcategoryimage" />
+          <ScalarProperty Name="eofflag" ColumnName="eofflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerDetails">
+      <EntityTypeMapping TypeName="IndiaTourModel.CustomerDetail">
+        <MappingFragment StoreEntitySet="CustomerDetails">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="customername" ColumnName="customername" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="pin" ColumnName="pin" />
+          <ScalarProperty Name="telno" ColumnName="telno" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="registrationdate" ColumnName="registrationdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatePackageDetails">
+      <EntityTypeMapping TypeName="IndiaTourModel.DatePackageDetail">
+        <MappingFragment StoreEntitySet="DatePackageDetails">
+          <ScalarProperty Name="datepackageid" ColumnName="datepackageid" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="reversetripflag" ColumnName="reversetripflag" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Itineraries">
+      <EntityTypeMapping TypeName="IndiaTourModel.Itinerary">
+        <MappingFragment StoreEntitySet="Itineraries">
+          <ScalarProperty Name="dayid" ColumnName="dayid" />
+          <ScalarProperty Name="daywisedescription" ColumnName="daywisedescription" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackageCompleteDetails">
+      <EntityTypeMapping TypeName="IndiaTourModel.PackageCompleteDetail">
+        <MappingFragment StoreEntitySet="PackageCompleteDetails">
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+          <ScalarProperty Name="tourname" ColumnName="tourname" />
+          <ScalarProperty Name="tourimage" ColumnName="tourimage" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="catsubid" ColumnName="catsubid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassengerDetails1">
+      <EntityTypeMapping TypeName="IndiaTourModel.PassengerDetails1">
+        <MappingFragment StoreEntitySet="PassengerDetails1">
+          <ScalarProperty Name="passengerid" ColumnName="passengerid" />
+          <ScalarProperty Name="passengername" ColumnName="passengername" />
+          <ScalarProperty Name="passengerdob" ColumnName="passengerdob" />
+          <ScalarProperty Name="roomtype" ColumnName="roomtype" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="passengeriddocument" ColumnName="passengeriddocument" />
+          <ScalarProperty Name="passengeridno" ColumnName="passengeridno" />
+          <ScalarProperty Name="passengersex" ColumnName="passengersex" />
+          <ScalarProperty Name="passengeremail" ColumnName="passengeremail" />
+          <ScalarProperty Name="bookingid" ColumnName="bookingid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceDetails1">
+      <EntityTypeMapping TypeName="IndiaTourModel.PriceDetails1">
+        <MappingFragment StoreEntitySet="PriceDetails1">
+          <ScalarProperty Name="priceid" ColumnName="priceid" />
+          <ScalarProperty Name="adultprice" ColumnName="adultprice" />
+          <ScalarProperty Name="childrenprice" ColumnName="childrenprice" />
+          <ScalarProperty Name="additionalcharges" ColumnName="additionalcharges" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
