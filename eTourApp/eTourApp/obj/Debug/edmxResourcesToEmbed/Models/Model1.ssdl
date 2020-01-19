@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IndiaTourModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="IndiaTourModelStoreContainer">
+    <EntitySet Name="BookingDetails" EntityType="IndiaTourModel.Store.BookingDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategorySubCategories" EntityType="IndiaTourModel.Store.CategorySubCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerDetails" EntityType="IndiaTourModel.Store.CustomerDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DatePackageDetails" EntityType="IndiaTourModel.Store.DatePackageDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Itineraries" EntityType="IndiaTourModel.Store.Itineraries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PackageCompleteDetails" EntityType="IndiaTourModel.Store.PackageCompleteDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassengerDetails1" EntityType="IndiaTourModel.Store.PassengerDetails1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PriceDetails1" EntityType="IndiaTourModel.Store.PriceDetails1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_BookingDetailPassengerDetail" Association="IndiaTourModel.Store.FK_BookingDetailPassengerDetail">
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+      <End Role="PassengerDetails1" EntitySet="PassengerDetails1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategorySubCategoryPackageCompleteDetail" Association="IndiaTourModel.Store.FK_CategorySubCategoryPackageCompleteDetail">
+      <End Role="CategorySubCategories" EntitySet="CategorySubCategories" />
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerDetailBookingDetail" Association="IndiaTourModel.Store.FK_CustomerDetailBookingDetail">
+      <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatePackageDetailBookingDetail" Association="IndiaTourModel.Store.FK_DatePackageDetailBookingDetail">
+      <End Role="DatePackageDetails" EntitySet="DatePackageDetails" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailBookingDetail" Association="IndiaTourModel.Store.FK_PackageCompleteDetailBookingDetail">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailDatePackageDetail" Association="IndiaTourModel.Store.FK_PackageCompleteDetailDatePackageDetail">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="DatePackageDetails" EntitySet="DatePackageDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailItinerary" Association="IndiaTourModel.Store.FK_PackageCompleteDetailItinerary">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="Itineraries" EntitySet="Itineraries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailPriceDetail" Association="IndiaTourModel.Store.FK_PackageCompleteDetailPriceDetail">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="PriceDetails1" EntitySet="PriceDetails1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BookingDetails">
+    <Key>
+      <PropertyRef Name="bookingid" />
+    </Key>
+    <Property Name="bookingid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="bookingdate" Type="date" />
+    <Property Name="passengerid" Type="int" />
+    <Property Name="activestatus" Type="nvarchar(max)" />
+    <Property Name="datepackageid" Type="int" />
+    <Property Name="packageid" Type="int" />
+    <Property Name="customerid" Type="int" />
+  </EntityType>
+  <EntityType Name="CategorySubCategories">
+    <Key>
+      <PropertyRef Name="catsubid" />
+    </Key>
+    <Property Name="catsubid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="categoryid" Type="int" />
+    <Property Name="categoryname" Type="nvarchar(max)" />
+    <Property Name="categoryimage" Type="nvarchar(max)" />
+    <Property Name="subcategoryid" Type="int" />
+    <Property Name="subcategoryname" Type="nvarchar(max)" />
+    <Property Name="subcategoryimage" Type="nvarchar(max)" />
+    <Property Name="eofflag" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerDetails">
+    <Key>
+      <PropertyRef Name="customerid" />
+    </Key>
+    <Property Name="customerid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="customername" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="password" Type="nvarchar(max)" />
+    <Property Name="address1" Type="nvarchar(max)" />
+    <Property Name="address2" Type="nvarchar(max)" />
+    <Property Name="city" Type="nvarchar(max)" />
+    <Property Name="state" Type="nvarchar(max)" />
+    <Property Name="pin" Type="int" />
+    <Property Name="telno" Type="nvarchar(max)" />
+    <Property Name="mobileno" Type="nvarchar(max)" />
+    <Property Name="registrationdate" Type="date" />
+  </EntityType>
+  <EntityType Name="DatePackageDetails">
+    <Key>
+      <PropertyRef Name="datepackageid" />
+    </Key>
+    <Property Name="datepackageid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="startdate" Type="date" />
+    <Property Name="enddate" Type="date" />
+    <Property Name="reversetripflag" Type="nvarchar(max)" />
+    <Property Name="packageid" Type="int" />
+  </EntityType>
+  <EntityType Name="Itineraries">
+    <Key>
+      <PropertyRef Name="dayid" />
+    </Key>
+    <Property Name="dayid" Type="int" Nullable="false" />
+    <Property Name="daywisedescription" Type="text" />
+    <Property Name="location" Type="nvarchar(max)" />
+    <Property Name="packageid" Type="int" />
+  </EntityType>
+  <EntityType Name="PackageCompleteDetails">
+    <Key>
+      <PropertyRef Name="packageid" />
+    </Key>
+    <Property Name="packageid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tourname" Type="nvarchar(max)" />
+    <Property Name="tourimage" Type="nvarchar(max)" />
+    <Property Name="description" Type="text" />
+    <Property Name="catsubid" Type="int" />
+  </EntityType>
+  <EntityType Name="PassengerDetails1">
+    <Key>
+      <PropertyRef Name="passengerid" />
+    </Key>
+    <Property Name="passengerid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="passengername" Type="nvarchar(max)" />
+    <Property Name="passengerdob" Type="date" />
+    <Property Name="roomtype" Type="nvarchar(max)" />
+    <Property Name="cost" Type="decimal" />
+    <Property Name="passengeriddocument" Type="nvarchar(max)" />
+    <Property Name="passengeridno" Type="int" />
+    <Property Name="passengersex" Type="nvarchar(max)" />
+    <Property Name="passengeremail" Type="nvarchar(max)" />
+    <Property Name="bookingid" Type="int" />
+  </EntityType>
+  <EntityType Name="PriceDetails1">
+    <Key>
+      <PropertyRef Name="priceid" />
+    </Key>
+    <Property Name="priceid" Type="int" Nullable="false" />
+    <Property Name="adultprice" Type="decimal" />
+    <Property Name="childrenprice" Type="decimal" />
+    <Property Name="additionalcharges" Type="decimal" />
+    <Property Name="packageid" Type="int" />
+  </EntityType>
+  <Association Name="FK_BookingDetailPassengerDetail">
+    <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="0..1" />
+    <End Role="PassengerDetails1" Type="IndiaTourModel.Store.PassengerDetails1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingDetails">
+        <PropertyRef Name="bookingid" />
+      </Principal>
+      <Dependent Role="PassengerDetails1">
+        <PropertyRef Name="bookingid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategorySubCategoryPackageCompleteDetail">
+    <End Role="CategorySubCategories" Type="IndiaTourModel.Store.CategorySubCategories" Multiplicity="0..1" />
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategorySubCategories">
+        <PropertyRef Name="catsubid" />
+      </Principal>
+      <Dependent Role="PackageCompleteDetails">
+        <PropertyRef Name="catsubid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerDetailBookingDetail">
+    <End Role="CustomerDetails" Type="IndiaTourModel.Store.CustomerDetails" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetails">
+        <PropertyRef Name="customerid" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="customerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatePackageDetailBookingDetail">
+    <End Role="DatePackageDetails" Type="IndiaTourModel.Store.DatePackageDetails" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatePackageDetails">
+        <PropertyRef Name="datepackageid" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="datepackageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailBookingDetail">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailDatePackageDetail">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="0..1" />
+    <End Role="DatePackageDetails" Type="IndiaTourModel.Store.DatePackageDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="DatePackageDetails">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailItinerary">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="0..1" />
+    <End Role="Itineraries" Type="IndiaTourModel.Store.Itineraries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="Itineraries">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailPriceDetail">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="0..1" />
+    <End Role="PriceDetails1" Type="IndiaTourModel.Store.PriceDetails1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="PriceDetails1">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

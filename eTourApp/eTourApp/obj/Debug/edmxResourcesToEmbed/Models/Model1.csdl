@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IndiaTourModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IndiaTourEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="BookingDetails" EntityType="IndiaTourModel.BookingDetail" />
+    <EntitySet Name="CategorySubCategories" EntityType="IndiaTourModel.CategorySubCategory" />
+    <EntitySet Name="CustomerDetails" EntityType="IndiaTourModel.CustomerDetail" />
+    <EntitySet Name="DatePackageDetails" EntityType="IndiaTourModel.DatePackageDetail" />
+    <EntitySet Name="Itineraries" EntityType="IndiaTourModel.Itinerary" />
+    <EntitySet Name="PackageCompleteDetails" EntityType="IndiaTourModel.PackageCompleteDetail" />
+    <EntitySet Name="PassengerDetails1" EntityType="IndiaTourModel.PassengerDetails1" />
+    <EntitySet Name="PriceDetails1" EntityType="IndiaTourModel.PriceDetails1" />
+    <AssociationSet Name="FK_BookingDetailPassengerDetail" Association="IndiaTourModel.FK_BookingDetailPassengerDetail">
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+      <End Role="PassengerDetails1" EntitySet="PassengerDetails1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerDetailBookingDetail" Association="IndiaTourModel.FK_CustomerDetailBookingDetail">
+      <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatePackageDetailBookingDetail" Association="IndiaTourModel.FK_DatePackageDetailBookingDetail">
+      <End Role="DatePackageDetails" EntitySet="DatePackageDetails" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailBookingDetail" Association="IndiaTourModel.FK_PackageCompleteDetailBookingDetail">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategorySubCategoryPackageCompleteDetail" Association="IndiaTourModel.FK_CategorySubCategoryPackageCompleteDetail">
+      <End Role="CategorySubCategories" EntitySet="CategorySubCategories" />
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailDatePackageDetail" Association="IndiaTourModel.FK_PackageCompleteDetailDatePackageDetail">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="DatePackageDetails" EntitySet="DatePackageDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailItinerary" Association="IndiaTourModel.FK_PackageCompleteDetailItinerary">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="Itineraries" EntitySet="Itineraries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackageCompleteDetailPriceDetail" Association="IndiaTourModel.FK_PackageCompleteDetailPriceDetail">
+      <End Role="PackageCompleteDetails" EntitySet="PackageCompleteDetails" />
+      <End Role="PriceDetails1" EntitySet="PriceDetails1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BookingDetail">
+    <Key>
+      <PropertyRef Name="bookingid" />
+    </Key>
+    <Property Name="bookingid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="bookingdate" Type="DateTime" Precision="0" />
+    <Property Name="passengerid" Type="Int32" />
+    <Property Name="activestatus" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="datepackageid" Type="Int32" />
+    <Property Name="packageid" Type="Int32" />
+    <Property Name="customerid" Type="Int32" />
+    <NavigationProperty Name="PassengerDetails1" Relationship="IndiaTourModel.FK_BookingDetailPassengerDetail" FromRole="BookingDetails" ToRole="PassengerDetails1" />
+    <NavigationProperty Name="CustomerDetail" Relationship="IndiaTourModel.FK_CustomerDetailBookingDetail" FromRole="BookingDetails" ToRole="CustomerDetails" />
+    <NavigationProperty Name="DatePackageDetail" Relationship="IndiaTourModel.FK_DatePackageDetailBookingDetail" FromRole="BookingDetails" ToRole="DatePackageDetails" />
+    <NavigationProperty Name="PackageCompleteDetail" Relationship="IndiaTourModel.FK_PackageCompleteDetailBookingDetail" FromRole="BookingDetails" ToRole="PackageCompleteDetails" />
+  </EntityType>
+  <EntityType Name="CategorySubCategory">
+    <Key>
+      <PropertyRef Name="catsubid" />
+    </Key>
+    <Property Name="catsubid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryid" Type="Int32" />
+    <Property Name="categoryname" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="categoryimage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="subcategoryid" Type="Int32" />
+    <Property Name="subcategoryname" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="subcategoryimage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="eofflag" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PackageCompleteDetails" Relationship="IndiaTourModel.FK_CategorySubCategoryPackageCompleteDetail" FromRole="CategorySubCategories" ToRole="PackageCompleteDetails" />
+  </EntityType>
+  <EntityType Name="CustomerDetail">
+    <Key>
+      <PropertyRef Name="customerid" />
+    </Key>
+    <Property Name="customerid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="customername" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="address1" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="address2" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="state" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="pin" Type="Int32" />
+    <Property Name="telno" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="mobileno" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="registrationdate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="BookingDetails" Relationship="IndiaTourModel.FK_CustomerDetailBookingDetail" FromRole="CustomerDetails" ToRole="BookingDetails" />
+  </EntityType>
+  <EntityType Name="DatePackageDetail">
+    <Key>
+      <PropertyRef Name="datepackageid" />
+    </Key>
+    <Property Name="datepackageid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="startdate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
+    <Property Name="reversetripflag" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="packageid" Type="Int32" />
+    <NavigationProperty Name="BookingDetails" Relationship="IndiaTourModel.FK_DatePackageDetailBookingDetail" FromRole="DatePackageDetails" ToRole="BookingDetails" />
+    <NavigationProperty Name="PackageCompleteDetail" Relationship="IndiaTourModel.FK_PackageCompleteDetailDatePackageDetail" FromRole="DatePackageDetails" ToRole="PackageCompleteDetails" />
+  </EntityType>
+  <EntityType Name="Itinerary">
+    <Key>
+      <PropertyRef Name="dayid" />
+    </Key>
+    <Property Name="dayid" Type="Int32" Nullable="false" />
+    <Property Name="daywisedescription" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="location" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="packageid" Type="Int32" />
+    <NavigationProperty Name="PackageCompleteDetail" Relationship="IndiaTourModel.FK_PackageCompleteDetailItinerary" FromRole="Itineraries" ToRole="PackageCompleteDetails" />
+  </EntityType>
+  <EntityType Name="PackageCompleteDetail">
+    <Key>
+      <PropertyRef Name="packageid" />
+    </Key>
+    <Property Name="packageid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="tourname" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="tourimage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="catsubid" Type="Int32" />
+    <NavigationProperty Name="BookingDetails" Relationship="IndiaTourModel.FK_PackageCompleteDetailBookingDetail" FromRole="PackageCompleteDetails" ToRole="BookingDetails" />
+    <NavigationProperty Name="CategorySubCategory" Relationship="IndiaTourModel.FK_CategorySubCategoryPackageCompleteDetail" FromRole="PackageCompleteDetails" ToRole="CategorySubCategories" />
+    <NavigationProperty Name="DatePackageDetails" Relationship="IndiaTourModel.FK_PackageCompleteDetailDatePackageDetail" FromRole="PackageCompleteDetails" ToRole="DatePackageDetails" />
+    <NavigationProperty Name="Itineraries" Relationship="IndiaTourModel.FK_PackageCompleteDetailItinerary" FromRole="PackageCompleteDetails" ToRole="Itineraries" />
+    <NavigationProperty Name="PriceDetails1" Relationship="IndiaTourModel.FK_PackageCompleteDetailPriceDetail" FromRole="PackageCompleteDetails" ToRole="PriceDetails1" />
+  </EntityType>
+  <EntityType Name="PassengerDetails1">
+    <Key>
+      <PropertyRef Name="passengerid" />
+    </Key>
+    <Property Name="passengerid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="passengername" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="passengerdob" Type="DateTime" Precision="0" />
+    <Property Name="roomtype" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="cost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="passengeriddocument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="passengeridno" Type="Int32" />
+    <Property Name="passengersex" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="passengeremail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="bookingid" Type="Int32" />
+    <NavigationProperty Name="BookingDetail" Relationship="IndiaTourModel.FK_BookingDetailPassengerDetail" FromRole="PassengerDetails1" ToRole="BookingDetails" />
+  </EntityType>
+  <EntityType Name="PriceDetails1">
+    <Key>
+      <PropertyRef Name="priceid" />
+    </Key>
+    <Property Name="priceid" Type="Int32" Nullable="false" />
+    <Property Name="adultprice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="childrenprice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="additionalcharges" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="packageid" Type="Int32" />
+    <NavigationProperty Name="PackageCompleteDetail" Relationship="IndiaTourModel.FK_PackageCompleteDetailPriceDetail" FromRole="PriceDetails1" ToRole="PackageCompleteDetails" />
+  </EntityType>
+  <Association Name="FK_BookingDetailPassengerDetail">
+    <End Role="BookingDetails" Type="IndiaTourModel.BookingDetail" Multiplicity="0..1" />
+    <End Role="PassengerDetails1" Type="IndiaTourModel.PassengerDetails1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingDetails">
+        <PropertyRef Name="bookingid" />
+      </Principal>
+      <Dependent Role="PassengerDetails1">
+        <PropertyRef Name="bookingid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerDetailBookingDetail">
+    <End Role="CustomerDetails" Type="IndiaTourModel.CustomerDetail" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="IndiaTourModel.BookingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetails">
+        <PropertyRef Name="customerid" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="customerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatePackageDetailBookingDetail">
+    <End Role="DatePackageDetails" Type="IndiaTourModel.DatePackageDetail" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="IndiaTourModel.BookingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatePackageDetails">
+        <PropertyRef Name="datepackageid" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="datepackageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailBookingDetail">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.PackageCompleteDetail" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="IndiaTourModel.BookingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategorySubCategoryPackageCompleteDetail">
+    <End Role="CategorySubCategories" Type="IndiaTourModel.CategorySubCategory" Multiplicity="0..1" />
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.PackageCompleteDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategorySubCategories">
+        <PropertyRef Name="catsubid" />
+      </Principal>
+      <Dependent Role="PackageCompleteDetails">
+        <PropertyRef Name="catsubid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailDatePackageDetail">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.PackageCompleteDetail" Multiplicity="0..1" />
+    <End Role="DatePackageDetails" Type="IndiaTourModel.DatePackageDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="DatePackageDetails">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailItinerary">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.PackageCompleteDetail" Multiplicity="0..1" />
+    <End Role="Itineraries" Type="IndiaTourModel.Itinerary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="Itineraries">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackageCompleteDetailPriceDetail">
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.PackageCompleteDetail" Multiplicity="0..1" />
+    <End Role="PriceDetails1" Type="IndiaTourModel.PriceDetails1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageCompleteDetails">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="PriceDetails1">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
