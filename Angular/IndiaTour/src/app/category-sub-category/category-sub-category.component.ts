@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategorySubCategory } from '../i-category-sub-category';
 import { CategorySubCategoryService } from '../category-sub-category.service';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-sub-category',
@@ -12,14 +14,29 @@ export class CategorySubCategoryComponent implements OnInit {
   categorysubcategories:ICategorySubCategory[];
   a:ICategorySubCategory[];
 
-  constructor(private _catsubcatservice:CategorySubCategoryService) { }
+  //inside constructor router must be initilized
+  constructor(private _catsubcatservice:CategorySubCategoryService,private router:Router) { }
   icat1Disp(categorysubcategories:ICategorySubCategory[]) : any
   {
     console.log(categorysubcategories);
      let x= categorysubcategories.filter(element  => element.subcategoryid==null);
      console.log(x);
+     
     return x;
   }
+   subcatDisp(a)
+    {
+      if(a.eofflag == 'N') //if n it will go to subcategory page
+      {
+        console.log(a);
+        localStorage.setItem("catid",a.categoryid);
+        this.router.navigate(["/subcat"]);//to load next component 
+      }
+      else if(a.eofflag == 'Y')//if yes it will go to packagedetail page
+      {
+        console.log(a.catsubid);
+      }
+    }
  
   ngOnInit() {
     

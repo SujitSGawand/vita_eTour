@@ -1,0 +1,32 @@
+import { Component, OnInit } from '@angular/core';
+import { ICategorySubCategory } from '../i-category-sub-category';
+import { CategorySubCategoryService } from '../category-sub-category.service';
+
+@Component({
+  selector: 'app-subcategory',
+  templateUrl: './subcategory.component.html',
+  styleUrls: ['./subcategory.component.css']
+})
+export class SubcategoryComponent implements OnInit {
+
+  categorysubcategories:ICategorySubCategory[];
+  a:ICategorySubCategory[];
+  id:Number=parseInt(localStorage.getItem('catid'));
+  
+  constructor(private _catsubcatservice:CategorySubCategoryService) { }
+
+  isubcatDisp(categorysubcategories:ICategorySubCategory[]) : any
+  {
+    console.log(categorysubcategories);
+     let x= categorysubcategories.filter(element  => element.subcategoryid == this.id);
+     console.log(x);
+    return x;
+  }
+  ngOnInit() {
+    alert(this.id);
+    this._catsubcatservice.GetCategorySubCategories().subscribe(data=>{this.categorysubcategories=data;
+      this.a=this.isubcatDisp(this.categorysubcategories);
+      console.log(this.a)}) ;
+  }
+
+}
