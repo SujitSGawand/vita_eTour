@@ -42,7 +42,7 @@ export class CategorySubCategoryComponent implements OnInit {
  
   ngOnInit() {
     
-    this._catsubcatservice.GetCategorySubCategories().subscribe(data=>{      this.categorysubcategories=data;
+    this._catsubcatservice.GetCategorySubCategories().subscribe(data=>{this.categorysubcategories=data;
       this.a=this.icat1Disp(this.categorysubcategories);
       console.log(this.a)}) ;
     }
