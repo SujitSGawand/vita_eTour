@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategorySubCategory } from '../i-category-sub-category';
 import { CategorySubCategoryService } from '../category-sub-category.service';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,6 +34,9 @@ export class CategorySubCategoryComponent implements OnInit {
       else if(a.eofflag == 'Y')//if yes it will go to packagedetail page
       {
         console.log(a.catsubid);
+        alert("hello from cat CategorySubcategory")
+        localStorage.setItem("catsubid",a.catsubid);
+        this.router.navigate(["/packagedetails"]);
       }
     }
  

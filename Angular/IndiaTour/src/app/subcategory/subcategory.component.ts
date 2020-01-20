@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategorySubCategory } from '../i-category-sub-category';
 import { CategorySubCategoryService } from '../category-sub-category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subcategory',
@@ -13,8 +14,17 @@ export class SubcategoryComponent implements OnInit {
   a:ICategorySubCategory[];
   id:Number=parseInt(localStorage.getItem('catid'));
   
-  constructor(private _catsubcatservice:CategorySubCategoryService) { }
+  constructor(private _catsubcatservice:CategorySubCategoryService,private router:Router) { }
 
+  subcatDisp(a)
+    {
+     if(a.eofflag == 'Y')
+     {
+        alert("hello from subcategory");
+        localStorage.setItem("catsubid",a.catsubid);
+       this.router.navigate(["/packagedetails"]);
+     }
+    }
   isubcatDisp(categorysubcategories:ICategorySubCategory[]) : any
   {
     console.log(categorysubcategories);
