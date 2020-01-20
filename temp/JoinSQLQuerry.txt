@@ -1,0 +1,10 @@
+Select * from [dbo].[PackageCompleteDetails] join [dbo].[DatePackageDetails] on
+ [dbo].[PackageCompleteDetails].[packageid]=[dbo].[DatePackageDetails].[packageid]
+join  [dbo].[PriceDetails1] on [dbo].[DatePackageDetails].[packageid]=[dbo].[PriceDetails1].[packageid];
+
+
+
+
+
+join on on [dbo].[PackageCompleteDetails].[packageid]=[dbo].[DatePackageDetails].[packageid]
+ [dbo].[PriceDetails1] =[dbo].[PriceDetails1].[packageid]

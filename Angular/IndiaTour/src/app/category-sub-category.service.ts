@@ -12,6 +12,6 @@ export class CategorySubCategoryService {
 
   GetCategorySubCategories():Observable<ICategorySubCategory[]>{
     
-    return this.http.get<ICategorySubCategory[]>(this.url+"CategorySubCategories");
+    return this.http.get<ICategorySubCategory[]>(this.url+"CategorySubCategories  ");
   }
 }

@@ -28,7 +28,7 @@ export class SubcategoryComponent implements OnInit {
   isubcatDisp(categorysubcategories:ICategorySubCategory[]) : any
   {
     console.log(categorysubcategories);
-     let x= categorysubcategories.filter(element  => element.subcategoryid == this.id);
+     let x= categorysubcategories.filter(element  => (element.categoryid == this.id) && (element.subcategoryid != null ));
      console.log(x);
     return x;
   }
