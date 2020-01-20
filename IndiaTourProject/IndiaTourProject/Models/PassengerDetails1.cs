@@ -23,7 +23,7 @@ namespace IndiaTourProject.Models
         public Nullable<int> passengeridno { get; set; }
         public string passengersex { get; set; }
         public string passengeremail { get; set; }
-        public Nullable<int> bookingid { get; set; }
+        public int bookingid { get; set; }
     
         public virtual BookingDetail BookingDetail { get; set; }
     }

@@ -63,8 +63,6 @@
     <Property Name="categoryname" Type="nvarchar(max)" />
     <Property Name="categoryimage" Type="nvarchar(max)" />
     <Property Name="subcategoryid" Type="int" />
-    <Property Name="subcategoryname" Type="nvarchar(max)" />
-    <Property Name="subcategoryimage" Type="nvarchar(max)" />
     <Property Name="eofflag" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="CustomerDetails">
@@ -97,11 +95,12 @@
   <EntityType Name="Itineraries">
     <Key>
       <PropertyRef Name="dayid" />
+      <PropertyRef Name="packageid" />
     </Key>
     <Property Name="dayid" Type="int" Nullable="false" />
     <Property Name="daywisedescription" Type="text" />
     <Property Name="location" Type="nvarchar(max)" />
-    <Property Name="packageid" Type="int" />
+    <Property Name="packageid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PackageCompleteDetails">
     <Key>
@@ -116,6 +115,7 @@
   <EntityType Name="PassengerDetails1">
     <Key>
       <PropertyRef Name="passengerid" />
+      <PropertyRef Name="bookingid" />
     </Key>
     <Property Name="passengerid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="passengername" Type="nvarchar(max)" />
@@ -126,7 +126,7 @@
     <Property Name="passengeridno" Type="int" />
     <Property Name="passengersex" Type="nvarchar(max)" />
     <Property Name="passengeremail" Type="nvarchar(max)" />
-    <Property Name="bookingid" Type="int" />
+    <Property Name="bookingid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PriceDetails1">
     <Key>
@@ -139,7 +139,7 @@
     <Property Name="packageid" Type="int" />
   </EntityType>
   <Association Name="FK_BookingDetailPassengerDetail">
-    <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="1" />
     <End Role="PassengerDetails1" Type="IndiaTourModel.Store.PassengerDetails1" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BookingDetails">
@@ -211,7 +211,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PackageCompleteDetailItinerary">
-    <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="0..1" />
+    <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="1" />
     <End Role="Itineraries" Type="IndiaTourModel.Store.Itineraries" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PackageCompleteDetails">

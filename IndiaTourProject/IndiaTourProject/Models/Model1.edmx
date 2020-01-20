@@ -68,8 +68,6 @@
           <Property Name="categoryname" Type="nvarchar(max)" />
           <Property Name="categoryimage" Type="nvarchar(max)" />
           <Property Name="subcategoryid" Type="int" />
-          <Property Name="subcategoryname" Type="nvarchar(max)" />
-          <Property Name="subcategoryimage" Type="nvarchar(max)" />
           <Property Name="eofflag" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="CustomerDetails">
@@ -102,11 +100,12 @@
         <EntityType Name="Itineraries">
           <Key>
             <PropertyRef Name="dayid" />
+            <PropertyRef Name="packageid" />
           </Key>
           <Property Name="dayid" Type="int" Nullable="false" />
           <Property Name="daywisedescription" Type="text" />
           <Property Name="location" Type="nvarchar(max)" />
-          <Property Name="packageid" Type="int" />
+          <Property Name="packageid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PackageCompleteDetails">
           <Key>
@@ -121,6 +120,7 @@
         <EntityType Name="PassengerDetails1">
           <Key>
             <PropertyRef Name="passengerid" />
+            <PropertyRef Name="bookingid" />
           </Key>
           <Property Name="passengerid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="passengername" Type="nvarchar(max)" />
@@ -131,7 +131,7 @@
           <Property Name="passengeridno" Type="int" />
           <Property Name="passengersex" Type="nvarchar(max)" />
           <Property Name="passengeremail" Type="nvarchar(max)" />
-          <Property Name="bookingid" Type="int" />
+          <Property Name="bookingid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PriceDetails1">
           <Key>
@@ -144,7 +144,7 @@
           <Property Name="packageid" Type="int" />
         </EntityType>
         <Association Name="FK_BookingDetailPassengerDetail">
-          <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="0..1" />
+          <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="1" />
           <End Role="PassengerDetails1" Type="IndiaTourModel.Store.PassengerDetails1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BookingDetails">
@@ -216,7 +216,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PackageCompleteDetailItinerary">
-          <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="0..1" />
+          <End Role="PackageCompleteDetails" Type="IndiaTourModel.Store.PackageCompleteDetails" Multiplicity="1" />
           <End Role="Itineraries" Type="IndiaTourModel.Store.Itineraries" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PackageCompleteDetails">
@@ -311,8 +311,6 @@
           <Property Name="categoryname" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="categoryimage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="subcategoryid" Type="Int32" />
-          <Property Name="subcategoryname" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="subcategoryimage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="eofflag" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="PackageCompleteDetails" Relationship="IndiaTourModel.FK_CategorySubCategoryPackageCompleteDetail" FromRole="CategorySubCategories" ToRole="PackageCompleteDetails" />
         </EntityType>
@@ -349,11 +347,12 @@
         <EntityType Name="Itinerary">
           <Key>
             <PropertyRef Name="dayid" />
+            <PropertyRef Name="packageid" />
           </Key>
           <Property Name="dayid" Type="Int32" Nullable="false" />
           <Property Name="daywisedescription" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="location" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="packageid" Type="Int32" />
+          <Property Name="packageid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PackageCompleteDetail" Relationship="IndiaTourModel.FK_PackageCompleteDetailItinerary" FromRole="Itineraries" ToRole="PackageCompleteDetails" />
         </EntityType>
         <EntityType Name="PackageCompleteDetail">
@@ -374,6 +373,7 @@
         <EntityType Name="PassengerDetails1">
           <Key>
             <PropertyRef Name="passengerid" />
+            <PropertyRef Name="bookingid" />
           </Key>
           <Property Name="passengerid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="passengername" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -384,7 +384,7 @@
           <Property Name="passengeridno" Type="Int32" />
           <Property Name="passengersex" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="passengeremail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="bookingid" Type="Int32" />
+          <Property Name="bookingid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BookingDetail" Relationship="IndiaTourModel.FK_BookingDetailPassengerDetail" FromRole="PassengerDetails1" ToRole="BookingDetails" />
         </EntityType>
         <EntityType Name="PriceDetails1">
@@ -399,7 +399,7 @@
           <NavigationProperty Name="PackageCompleteDetail" Relationship="IndiaTourModel.FK_PackageCompleteDetailPriceDetail" FromRole="PriceDetails1" ToRole="PackageCompleteDetails" />
         </EntityType>
         <Association Name="FK_BookingDetailPassengerDetail">
-          <End Role="BookingDetails" Type="IndiaTourModel.BookingDetail" Multiplicity="0..1" />
+          <End Role="BookingDetails" Type="IndiaTourModel.BookingDetail" Multiplicity="1" />
           <End Role="PassengerDetails1" Type="IndiaTourModel.PassengerDetails1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BookingDetails">
@@ -471,7 +471,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PackageCompleteDetailItinerary">
-          <End Role="PackageCompleteDetails" Type="IndiaTourModel.PackageCompleteDetail" Multiplicity="0..1" />
+          <End Role="PackageCompleteDetails" Type="IndiaTourModel.PackageCompleteDetail" Multiplicity="1" />
           <End Role="Itineraries" Type="IndiaTourModel.Itinerary" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PackageCompleteDetails">
@@ -521,8 +521,6 @@
                 <ScalarProperty Name="categoryname" ColumnName="categoryname" />
                 <ScalarProperty Name="categoryimage" ColumnName="categoryimage" />
                 <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
-                <ScalarProperty Name="subcategoryname" ColumnName="subcategoryname" />
-                <ScalarProperty Name="subcategoryimage" ColumnName="subcategoryimage" />
                 <ScalarProperty Name="eofflag" ColumnName="eofflag" />
               </MappingFragment>
             </EntityTypeMapping>

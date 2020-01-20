@@ -24,8 +24,6 @@ namespace IndiaTourProject.Models
         public string categoryname { get; set; }
         public string categoryimage { get; set; }
         public Nullable<int> subcategoryid { get; set; }
-        public string subcategoryname { get; set; }
-        public string subcategoryimage { get; set; }
         public string eofflag { get; set; }
     
         public virtual ICollection<PackageCompleteDetail> PackageCompleteDetails { get; set; }

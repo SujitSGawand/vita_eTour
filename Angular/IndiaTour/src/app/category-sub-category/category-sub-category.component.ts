@@ -11,27 +11,21 @@ export class CategorySubCategoryComponent implements OnInit {
 
   categorysubcategories:ICategorySubCategory[];
   a:ICategorySubCategory[];
- 
+
   constructor(private _catsubcatservice:CategorySubCategoryService) { }
-  icat1Disp(categorysubcategories:ICategorySubCategory[]) : ICategorySubCategory[]
+  icat1Disp(categorysubcategories:ICategorySubCategory[]) : any
   {
-    let b:ICategorySubCategory[];
-    categorysubcategories.forEach(element => {
-      var i;
-      if(element.categoryname!=null)
-      {
-        for (i=0;i<=b.length;i++)
-          b[i] = element;
-      }
-      }    
-    );
-    return b;
+    console.log(categorysubcategories);
+     let x= categorysubcategories.filter(element  => element.subcategoryid==null);
+     console.log(x);
+    return x;
   }
  
   ngOnInit() {
     
-    this._catsubcatservice.GetCategorySubCategories().subscribe(data=>this.categorysubcategories=data) ;
-    this.a=this.icat1Disp(this.categorysubcategories);
-  }
+    this._catsubcatservice.GetCategorySubCategories().subscribe(data=>{      this.categorysubcategories=data;
+      this.a=this.icat1Disp(this.categorysubcategories);
+      console.log(this.a)}) ;
+    }
 
 }

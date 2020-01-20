@@ -17,7 +17,7 @@ namespace IndiaTourProject.Models
         public int dayid { get; set; }
         public string daywisedescription { get; set; }
         public string location { get; set; }
-        public Nullable<int> packageid { get; set; }
+        public int packageid { get; set; }
     
         public virtual PackageCompleteDetail PackageCompleteDetail { get; set; }
     }

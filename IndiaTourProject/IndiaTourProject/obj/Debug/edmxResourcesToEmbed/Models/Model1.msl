@@ -22,8 +22,6 @@
           <ScalarProperty Name="categoryname" ColumnName="categoryname" />
           <ScalarProperty Name="categoryimage" ColumnName="categoryimage" />
           <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
-          <ScalarProperty Name="subcategoryname" ColumnName="subcategoryname" />
-          <ScalarProperty Name="subcategoryimage" ColumnName="subcategoryimage" />
           <ScalarProperty Name="eofflag" ColumnName="eofflag" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -7,8 +7,6 @@ export class CategorySubCategory implements ICategorySubCategory {
         public categoryname :string,
         public categoryimage :string,
         public subcategoryid:number,
-        public subcategoryname :string,
-        public subcategoryimage:string,
         public eofflag :string)
         {}
 }
