@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[Itineraries] (
+    [dayid]              INT            NOT NULL,
+    [daywisedescription] TEXT           NULL,
+    [location]           NVARCHAR (MAX) NULL,
+    [packageid]          INT            NOT NULL,
+    CONSTRAINT [FK_PackageCompleteDetailItinerary] FOREIGN KEY ([packageid]) REFERENCES [dbo].[PackageCompleteDetails] ([packageid]), 
+    CONSTRAINT [PK_Itineraries] PRIMARY KEY ([dayid], [packageid]) 
+);
