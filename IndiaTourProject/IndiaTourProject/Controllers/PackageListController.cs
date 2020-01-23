@@ -32,21 +32,25 @@ namespace IndiaTourProject.Controllers
                        where pcd.catsubid==id 
                        select new
                        {
+                           packageid = pcd.packageid,
                            tourname = pcd.tourname,
                            tourimage = pcd.tourimage,
                            tourcost = pd1.tourcost,
                            enddate = dpd.enddate,
-                           startdate = dpd.startdate
+                           startdate = dpd.startdate,
+                           datepackageid = dpd.datepackageid
                        };
 
             foreach (var i in list)
             {
                 PackageList p = new PackageList();
+                p.packageid = i.packageid;
                 p.tourname = i.tourname;
                 p.tourimage = i.tourimage;
                 p.tourcost = i.tourcost;
                 p.enddate = i.enddate;
                 p.startdate = i.startdate;
+                p.datepackageid = i.datepackageid;
                 ll.Add(p);
             }
             return ll;                                    

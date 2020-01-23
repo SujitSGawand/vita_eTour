@@ -12,7 +12,8 @@ export class SubcategoryComponent implements OnInit {
 
   categorysubcategories:ICategorySubCategory[];
   a:ICategorySubCategory[];
-  id:Number=parseInt(localStorage.getItem('catid'));
+  title:ICategorySubCategory;
+  id:number=parseInt(localStorage.getItem('catid'));
   
   constructor(private _catsubcatservice:CategorySubCategoryService,private router:Router) { }
 
@@ -36,6 +37,7 @@ export class SubcategoryComponent implements OnInit {
     alert(this.id);
     this._catsubcatservice.GetCategorySubCategories().subscribe(data=>{this.categorysubcategories=data;
       this.a=this.isubcatDisp(this.categorysubcategories);
+      this.title=this.categorysubcategories[this.id-1]
       console.log(this.a)}) ;
   }
 

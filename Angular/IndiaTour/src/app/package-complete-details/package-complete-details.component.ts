@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ICategorySubCategory } from '../i-category-sub-category';
 import { CategorySubCategoryService } from '../category-sub-category.service';
 import { Router } from '@angular/router';
+import { IItineraryPCD } from '../iitinerary-pcd';
 
 
 @Component({
@@ -11,26 +12,19 @@ import { Router } from '@angular/router';
 })
 export class PackageCompleteDetailsComponent implements OnInit {
 
-  categorysubcategories:ICategorySubCategory[];
-  a:ICategorySubCategory[];
+  Ipcdays:IItineraryPCD[];
+  a:IItineraryPCD;
   id:Number=parseInt(localStorage.getItem('catsubid'));
-
+  packid:number=parseInt(localStorage.getItem('packid'));
+  datepackid:number=parseInt(localStorage.getItem('datepackid'));
   constructor(private _catsubcatservice:CategorySubCategoryService,private router:Router) { }
 
   
-  iPacCompDetDisp(categorysubcategories:ICategorySubCategory[]) : any
-  {
-    // console.log(categorysubcategories);
-    //  let x= categorysubcategories.filter(element  => element.catsubid==this.id);
-    //  console.log(x);
-     alert("Hello from Packet complete details")
-    //return x;
-  }
+  
   ngOnInit() {
     alert(this.id);
-    this._catsubcatservice.GetCategorySubCategories().subscribe(data=>{this.categorysubcategories=data;
-      this.a=this.iPacCompDetDisp(this.categorysubcategories);
-      console.log(this.a)}) ;
+    this._catsubcatservice.GetItineraryPCD(this.packid,this.datepackid).subscribe(data=>{this.Ipcdays=data;
+      this.a=this.Ipcdays[0];}) ;
   }
 
 }

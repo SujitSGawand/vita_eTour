@@ -5,20 +5,23 @@ using System.Web;
 
 namespace IndiaTourProject.Models
 {
-    public class PackageList
+    public class ItineraryPCD
     {
         public int packageid { get; set; }
+        public int datepackageid { get; set; }
         public string tourname { get; set; }
         public string tourimage { get; set; }
-        public Nullable<decimal> tourcost { get; set; }
+        public string description { get; set; }
+        
+
+        
         public Nullable<System.DateTime> startdate { get; set; }
         public Nullable<System.DateTime> enddate { get; set; }
-        public int datepackageid { get; set; } 
 
-        public override string ToString()
-        {
-            return string.Format("tourname={0},tourimage={1},tourcost={2}",tourname,tourimage,tourcost);
-        } 
+        public int dayid { get; set; }
+        public string daywisedescription { get; set; }
+        public string location { get; set; }
+
+        public Nullable<decimal> tourcost { get; set; }
     }
-    
 }
