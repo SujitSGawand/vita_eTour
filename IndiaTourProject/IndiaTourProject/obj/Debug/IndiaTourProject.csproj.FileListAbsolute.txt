@@ -64,9 +64,9 @@ C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTo
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\bin\ru\System.Spatial.resources.dll
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\obj\Debug\IndiaTourProject.csprojResolveAssemblyReference.cache
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\obj\Debug\IndiaTourProject.dll
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\obj\Debug\IndiaTourProject.pdb
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\bin\System.Web.Cors.dll
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\bin\System.Web.Http.Cors.dll
 C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\bin\System.Web.Http.Cors.xml
+C:\Users\Payal Mane\Desktop\IndiaTourProject\vita_eTour\IndiaTourProject\IndiaTourProject\obj\Debug\IndiaTourProject.csprojResolveAssemblyReference.cache

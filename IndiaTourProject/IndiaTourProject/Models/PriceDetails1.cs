@@ -15,10 +15,12 @@ namespace IndiaTourProject.Models
     public partial class PriceDetails1
     {
         public int priceid { get; set; }
-        public Nullable<decimal> adultprice { get; set; }
-        public Nullable<decimal> childrenprice { get; set; }
-        public Nullable<decimal> additionalcharges { get; set; }
         public Nullable<int> packageid { get; set; }
+        public Nullable<decimal> adults { get; set; }
+        public Nullable<decimal> singleperson { get; set; }
+        public Nullable<decimal> childwithoutbed { get; set; }
+        public Nullable<decimal> childwithbed { get; set; }
+        public Nullable<decimal> tourcost { get; set; }
     
         public virtual PackageCompleteDetail PackageCompleteDetail { get; set; }
     }

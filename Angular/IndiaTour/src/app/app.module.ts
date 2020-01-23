@@ -7,13 +7,15 @@ import { CategorySubCategoryComponent } from './category-sub-category/category-s
 import { HttpClientModule } from '@angular/common/http';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { PackageCompleteDetailsComponent } from './package-complete-details/package-complete-details.component';
+import { PackageListComponent } from './package-list/package-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategorySubCategoryComponent,
     SubcategoryComponent,
-    PackageCompleteDetailsComponent
+    PackageCompleteDetailsComponent,
+    PackageListComponent
   ],
   imports: [
     BrowserModule,

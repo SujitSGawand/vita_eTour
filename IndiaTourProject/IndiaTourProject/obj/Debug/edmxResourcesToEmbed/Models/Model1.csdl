@@ -148,11 +148,13 @@
       <PropertyRef Name="priceid" />
     </Key>
     <Property Name="priceid" Type="Int32" Nullable="false" />
-    <Property Name="adultprice" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="childrenprice" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="additionalcharges" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="packageid" Type="Int32" />
     <NavigationProperty Name="PackageCompleteDetail" Relationship="IndiaTourModel.FK_PackageCompleteDetailPriceDetail" FromRole="PriceDetails1" ToRole="PackageCompleteDetails" />
+    <Property Type="Decimal" Name="adults" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="singleperson" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="childwithoutbed" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="childwithbed" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tourcost" Precision="18" Scale="0" />
   </EntityType>
   <Association Name="FK_BookingDetailPassengerDetail">
     <End Role="BookingDetails" Type="IndiaTourModel.BookingDetail" Multiplicity="1" />

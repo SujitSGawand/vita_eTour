@@ -22,7 +22,7 @@ export class SubcategoryComponent implements OnInit {
      {
         alert("hello from subcategory");
         localStorage.setItem("catsubid",a.catsubid);
-       this.router.navigate(["/packagedetails"]);
+       this.router.navigate(["/packagelist"]);
      }
     }
   isubcatDisp(categorysubcategories:ICategorySubCategory[]) : any

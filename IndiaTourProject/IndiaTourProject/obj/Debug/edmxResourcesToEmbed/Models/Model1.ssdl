@@ -133,10 +133,12 @@
       <PropertyRef Name="priceid" />
     </Key>
     <Property Name="priceid" Type="int" Nullable="false" />
-    <Property Name="adultprice" Type="decimal" />
-    <Property Name="childrenprice" Type="decimal" />
-    <Property Name="additionalcharges" Type="decimal" />
+    <Property Name="adults" Type="decimal" />
+    <Property Name="singleperson" Type="decimal" />
+    <Property Name="childwithoutbed" Type="decimal" />
     <Property Name="packageid" Type="int" />
+    <Property Name="childwithbed" Type="decimal" />
+    <Property Name="tourcost" Type="decimal" />
   </EntityType>
   <Association Name="FK_BookingDetailPassengerDetail">
     <End Role="BookingDetails" Type="IndiaTourModel.Store.BookingDetails" Multiplicity="1" />

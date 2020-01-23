@@ -95,10 +95,12 @@
     <EntitySetMapping Name="PriceDetails1">
       <EntityTypeMapping TypeName="IndiaTourModel.PriceDetails1">
         <MappingFragment StoreEntitySet="PriceDetails1">
+          <ScalarProperty Name="tourcost" ColumnName="tourcost" />
+          <ScalarProperty Name="childwithbed" ColumnName="childwithbed" />
+          <ScalarProperty Name="childwithoutbed" ColumnName="childwithoutbed" />
+          <ScalarProperty Name="singleperson" ColumnName="singleperson" />
+          <ScalarProperty Name="adults" ColumnName="adults" />
           <ScalarProperty Name="priceid" ColumnName="priceid" />
-          <ScalarProperty Name="adultprice" ColumnName="adultprice" />
-          <ScalarProperty Name="childrenprice" ColumnName="childrenprice" />
-          <ScalarProperty Name="additionalcharges" ColumnName="additionalcharges" />
           <ScalarProperty Name="packageid" ColumnName="packageid" />
         </MappingFragment>
       </EntityTypeMapping>

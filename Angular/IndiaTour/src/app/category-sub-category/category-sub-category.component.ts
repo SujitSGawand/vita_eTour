@@ -36,7 +36,7 @@ export class CategorySubCategoryComponent implements OnInit {
         console.log(a.catsubid);
         alert("hello from cat CategorySubcategory")
         localStorage.setItem("catsubid",a.catsubid);
-        this.router.navigate(["/packagedetails"]);
+        this.router.navigate(["/packagelist"]);
       }
     }
  

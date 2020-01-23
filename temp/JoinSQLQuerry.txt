@@ -5,6 +5,6 @@ join  [dbo].[PriceDetails1] on [dbo].[DatePackageDetails].[packageid]=[dbo].[Pri
 
 
 
-
-join on on [dbo].[PackageCompleteDetails].[packageid]=[dbo].[DatePackageDetails].[packageid]
- [dbo].[PriceDetails1] =[dbo].[PriceDetails1].[packageid]
+Select a.[tourname],a.[tourimage],c.[tourcost],DATEDIFF(DAY,b.[startdate],b.[enddate]) as daycount 
+from [dbo].[PackageCompleteDetails] as a join [dbo].[DatePackageDetails] as b on a.[packageid]=b.[packageid]
+join  [dbo].[PriceDetails1] as c on b.[packageid]=c.[packageid] ;
