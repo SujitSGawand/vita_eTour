@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7ce34169d624e5a8105b8f3f09de9a0" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="e7ce34169d624e5a8105b8f3f09de9a0" Name="Diagram1" ZoomLevel="83">
         <EntityTypeShape EntityType="IndiaTourModel.BookingDetail" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="IndiaTourModel.CategorySubCategory" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="IndiaTourModel.CustomerDetail" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="IndiaTourModel.DatePackageDetail" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="IndiaTourModel.Itinerary" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="IndiaTourModel.PackageCompleteDetail" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="IndiaTourModel.PassengerDetails1" Width="1.5" PointX="9.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IndiaTourModel.PassengerDetails1" Width="2.5" PointX="9.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="IndiaTourModel.PriceDetails1" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
         <AssociationConnector Association="IndiaTourModel.FK_BookingDetailPassengerDetail" ManuallyRouted="false" />
         <AssociationConnector Association="IndiaTourModel.FK_CustomerDetailBookingDetail" ManuallyRouted="false" />

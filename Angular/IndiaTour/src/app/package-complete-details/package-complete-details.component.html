@@ -59,7 +59,7 @@
 
               <ng-container *ngFor="let dte of packageList">
                 <tr id="date">                    
-                  <td><input type="radio" name="date" value="{{dte.datepackageid}}">&nbsp;&nbsp;{{dte.startdate}}</td>
+                  <td><input type="radio" name="date" value="{{dte.datepackageid}}">&nbsp;&nbsp;{{dte.startdate | date:'dd/MMM/yyyy'}}</td>
                 </tr> 
               </ng-container>
 

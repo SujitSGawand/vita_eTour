@@ -16,11 +16,11 @@ export class PackageCompleteDetailsComponent implements OnInit {
   packageList:IPackageList[];
   Ipcdays:IItineraryPCD[];
   a:IItineraryPCD;
-  srnum:number=1;
+  
   id:number=parseInt(localStorage.getItem('catsubid'));
   packid:number=parseInt(localStorage.getItem('packid'));
   datepackid:number=parseInt(localStorage.getItem('datepackid'));
- // CompletePack:IPackageList[]=JSON.parse(localStorage.getItem("CompletePack"));
+ 
   
   constructor(private _catsubcatservice:CategorySubCategoryService,private router:Router) { }
 
@@ -29,7 +29,7 @@ export class PackageCompleteDetailsComponent implements OnInit {
     alert(bookingdatesubmit.value);
   }
   
-  
+
   ngOnInit() {
     
     this._catsubcatservice.GetItineraryPCD(this.packid,this.datepackid).subscribe(data=>{this.Ipcdays=data;

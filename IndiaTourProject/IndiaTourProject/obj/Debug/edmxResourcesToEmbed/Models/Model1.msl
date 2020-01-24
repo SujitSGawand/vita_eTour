@@ -6,7 +6,6 @@
         <MappingFragment StoreEntitySet="BookingDetails">
           <ScalarProperty Name="bookingid" ColumnName="bookingid" />
           <ScalarProperty Name="bookingdate" ColumnName="bookingdate" />
-          <ScalarProperty Name="passengerid" ColumnName="passengerid" />
           <ScalarProperty Name="activestatus" ColumnName="activestatus" />
           <ScalarProperty Name="datepackageid" ColumnName="datepackageid" />
           <ScalarProperty Name="packageid" ColumnName="packageid" />
@@ -79,11 +78,12 @@
     <EntitySetMapping Name="PassengerDetails1">
       <EntityTypeMapping TypeName="IndiaTourModel.PassengerDetails1">
         <MappingFragment StoreEntitySet="PassengerDetails1">
+          <ScalarProperty Name="twinSharing" ColumnName="twinSharing" />
+          <ScalarProperty Name="bed" ColumnName="bed" />
+          <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="passengerid" ColumnName="passengerid" />
           <ScalarProperty Name="passengername" ColumnName="passengername" />
           <ScalarProperty Name="passengerdob" ColumnName="passengerdob" />
-          <ScalarProperty Name="roomtype" ColumnName="roomtype" />
-          <ScalarProperty Name="cost" ColumnName="cost" />
           <ScalarProperty Name="passengeriddocument" ColumnName="passengeriddocument" />
           <ScalarProperty Name="passengeridno" ColumnName="passengeridno" />
           <ScalarProperty Name="passengersex" ColumnName="passengersex" />

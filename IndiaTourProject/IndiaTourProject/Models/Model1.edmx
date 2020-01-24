@@ -53,7 +53,6 @@
           </Key>
           <Property Name="bookingid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="bookingdate" Type="date" />
-          <Property Name="passengerid" Type="int" />
           <Property Name="activestatus" Type="nvarchar(max)" />
           <Property Name="datepackageid" Type="int" />
           <Property Name="packageid" Type="int" />
@@ -125,13 +124,14 @@
           <Property Name="passengerid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="passengername" Type="nvarchar(max)" />
           <Property Name="passengerdob" Type="date" />
-          <Property Name="roomtype" Type="nvarchar(max)" />
-          <Property Name="cost" Type="decimal" />
+          <Property Name="age" Type="int" />
           <Property Name="passengeriddocument" Type="nvarchar(max)" />
           <Property Name="passengeridno" Type="int" />
           <Property Name="passengersex" Type="nvarchar(max)" />
           <Property Name="passengeremail" Type="nvarchar(max)" />
           <Property Name="bookingid" Type="int" Nullable="false" />
+          <Property Name="bed" Type="nvarchar(max)" />
+          <Property Name="twinSharing" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PriceDetails1">
           <Key>
@@ -293,7 +293,6 @@
           </Key>
           <Property Name="bookingid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="bookingdate" Type="DateTime" Precision="0" />
-          <Property Name="passengerid" Type="Int32" />
           <Property Name="activestatus" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="datepackageid" Type="Int32" />
           <Property Name="packageid" Type="Int32" />
@@ -379,14 +378,15 @@
           <Property Name="passengerid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="passengername" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="passengerdob" Type="DateTime" Precision="0" />
-          <Property Name="roomtype" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="cost" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="passengeriddocument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="passengeridno" Type="Int32" />
           <Property Name="passengersex" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="passengeremail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="bookingid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BookingDetail" Relationship="IndiaTourModel.FK_BookingDetailPassengerDetail" FromRole="PassengerDetails1" ToRole="BookingDetails" />
+          <Property Type="Int32" Name="age" />
+          <Property Type="String" Name="bed" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="twinSharing" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PriceDetails1">
           <Key>
@@ -508,7 +508,6 @@
               <MappingFragment StoreEntitySet="BookingDetails">
                 <ScalarProperty Name="bookingid" ColumnName="bookingid" />
                 <ScalarProperty Name="bookingdate" ColumnName="bookingdate" />
-                <ScalarProperty Name="passengerid" ColumnName="passengerid" />
                 <ScalarProperty Name="activestatus" ColumnName="activestatus" />
                 <ScalarProperty Name="datepackageid" ColumnName="datepackageid" />
                 <ScalarProperty Name="packageid" ColumnName="packageid" />
@@ -581,11 +580,12 @@
           <EntitySetMapping Name="PassengerDetails1">
             <EntityTypeMapping TypeName="IndiaTourModel.PassengerDetails1">
               <MappingFragment StoreEntitySet="PassengerDetails1">
+                <ScalarProperty Name="twinSharing" ColumnName="twinSharing" />
+                <ScalarProperty Name="bed" ColumnName="bed" />
+                <ScalarProperty Name="age" ColumnName="age" />
                 <ScalarProperty Name="passengerid" ColumnName="passengerid" />
                 <ScalarProperty Name="passengername" ColumnName="passengername" />
                 <ScalarProperty Name="passengerdob" ColumnName="passengerdob" />
-                <ScalarProperty Name="roomtype" ColumnName="roomtype" />
-                <ScalarProperty Name="cost" ColumnName="cost" />
                 <ScalarProperty Name="passengeriddocument" ColumnName="passengeriddocument" />
                 <ScalarProperty Name="passengeridno" ColumnName="passengeridno" />
                 <ScalarProperty Name="passengersex" ColumnName="passengersex" />

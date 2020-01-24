@@ -48,7 +48,6 @@
     </Key>
     <Property Name="bookingid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="bookingdate" Type="DateTime" Precision="0" />
-    <Property Name="passengerid" Type="Int32" />
     <Property Name="activestatus" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="datepackageid" Type="Int32" />
     <Property Name="packageid" Type="Int32" />
@@ -134,14 +133,15 @@
     <Property Name="passengerid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="passengername" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="passengerdob" Type="DateTime" Precision="0" />
-    <Property Name="roomtype" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="cost" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="passengeriddocument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="passengeridno" Type="Int32" />
     <Property Name="passengersex" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="passengeremail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="bookingid" Type="Int32" Nullable="false" />
     <NavigationProperty Name="BookingDetail" Relationship="IndiaTourModel.FK_BookingDetailPassengerDetail" FromRole="PassengerDetails1" ToRole="BookingDetails" />
+    <Property Type="Int32" Name="age" />
+    <Property Type="String" Name="bed" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="twinSharing" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PriceDetails1">
     <Key>

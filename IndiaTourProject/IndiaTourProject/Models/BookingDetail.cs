@@ -21,7 +21,6 @@ namespace IndiaTourProject.Models
     
         public int bookingid { get; set; }
         public Nullable<System.DateTime> bookingdate { get; set; }
-        public Nullable<int> passengerid { get; set; }
         public string activestatus { get; set; }
         public Nullable<int> datepackageid { get; set; }
         public Nullable<int> packageid { get; set; }
