@@ -7,7 +7,7 @@
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item active"><a href="http://localhost:4200/home" class="nav-link">Home</a></li>
         <li class="nav-item"><a href="tours.html" class="nav-link">Tours</a></li>
         <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
@@ -20,13 +20,13 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
       <div class="col-md-9 ftco-animate pb-5 text-center">
         
-        <h1 class="mb-3 bread">{{a.tourname}}</h1>
+        <h1>{{a.tourname}}</h1>
         <p>{{a.description}}</p>
      
       </div>
@@ -42,36 +42,76 @@
       <div class="col-md-6 d-flex">
         <div class="img d-flex align-self-stretch" style="background-image:url(images/about.jpg);"></div>
       </div>
-      <div class="col-md-6 d-flex">
-        <div class="img d-flex align-self-stretch" style="background-image:url(images/about.jpg);"></div>
-      </div>
+     <table class="table" style="border-spacing: 200px">
+       <tr>
+          <td>
+            <div class="col-md-6 d-flex">
+              <div class="img d-flex align-self-stretch"><img src="{{a.tourimage}}"></div>
+            </div>
+          </td>
+          <td> 
 
-      <div>
-        <table border="1" width="500">
-          <ng-container *ngFor="let iti of Ipcdays">
-            <tr>
-              <th>{{iti.dayid}}</th>
-              <th>{{iti.location}}</th>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <p>{{iti.daywisedescription}}</p>
-              </td>
-            </tr>
-          </ng-container>
-        </table>
-      </div>
+          <form [formGroup]="bookingdatesubmit" (ngSubmit)="onSubmit(bookingdatesubmit)" novalidate>
+            <table border="1" width="500">
+                <tr id="date">
+                  <th>Available Dates</th>
+                </tr>
+
+              <ng-container *ngFor="let dte of packageList">
+                <tr id="date">                    
+                  <td><input type="radio" name="date" value="{{dte.datepackageid}}">&nbsp;&nbsp;{{dte.startdate}}</td>
+                </tr> 
+              </ng-container>
+
+                <tr>
+                  <button width="500"  id="buttonalign" >Book Now</button>
+                </tr>       
+            </table>
+          </form>
+          </td>
+        </tr>
+       
+       <tr>
+          <td colspan="2"> 
+            <div> 
+              <table border="1" width="1000">
+                <tr>
+                  <th colspan="2" id="itinerary">
+                    Itinerary
+                  </th>
+                </tr>
+                <ng-container *ngFor="let iti of Ipcdays">
+                  <tr>
+                    <th>{{iti.dayid}}</th>
+                    <th>{{iti.location}}</th>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <p>{{iti.daywisedescription}}</p>
+                    </td>
+                  </tr>
+                </ng-container>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+
       <div class="col-md-6 pl-md-5 py-5">
         <div class="row justify-content-start pb-3">
           <div class="col-md-12 heading-section ftco-animate">
           
-      <button  class="nav-item cta" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <button  class="nav-item cta" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="oi oi-menu"></span> Book Now
-    </button>
-      
+      </button> -->
           </div>
         </div>
-        <div class="row">
+      </div>
+
+
+
+        <!-- <div class="row">
           <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
             <div class="block-18 text-center py-5 bg-light mb-4">
               <div class="text">
@@ -104,8 +144,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> -->
+
+
+      
     </div>
   </div>
 </section>

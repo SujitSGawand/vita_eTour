@@ -1,0 +1,18 @@
+table{
+    border-spacing: 500px;
+}
+
+#itinerary{
+    text-align: center;
+    font-size: x-large;
+}
+
+#date{
+    text-align: center;
+    font-size: large;
+}
+
+#buttonalign{
+    margin-left: 38%;
+    font-size: x-large;
+}

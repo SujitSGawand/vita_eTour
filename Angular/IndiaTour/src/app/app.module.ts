@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { PackageCompleteDetailsComponent } from './package-complete-details/package-complete-details.component';
 import { PackageListComponent } from './package-list/package-list.component';
-
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,9 @@ import { PackageListComponent } from './package-list/package-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

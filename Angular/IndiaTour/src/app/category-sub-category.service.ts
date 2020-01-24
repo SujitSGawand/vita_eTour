@@ -24,4 +24,5 @@ export class CategorySubCategoryService {
   GetItineraryPCD(packid:number,datepackid:number):Observable<IItineraryPCD[]>{
     return this.http.get<IItineraryPCD[]>(this.url+"ItineraryPCD/?packid="+1+"&datepackid="+2);
   }
+
 }

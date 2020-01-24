@@ -18,6 +18,7 @@ export class PackageListComponent implements OnInit {
   Itinerarydisp(packageList)
   {
     alert(packageList);
+    //localStorage.setItem("CompletePack",JSON.stringify(packageList));
     localStorage.setItem("packid",packageList.packageid);
     localStorage.setItem("datepackid",packageList.datepackageid);
     this.router.navigate(["/packagedetails"]);
