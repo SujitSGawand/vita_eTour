@@ -10,6 +10,7 @@ import { PackageCompleteDetailsComponent } from './package-complete-details/pack
 import { PackageListComponent } from './package-list/package-list.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
+import { BookingComponent } from './booking/booking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { RegistrationComponent } from './registration/registration.component';
     SubcategoryComponent,
     PackageCompleteDetailsComponent,
     PackageListComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,

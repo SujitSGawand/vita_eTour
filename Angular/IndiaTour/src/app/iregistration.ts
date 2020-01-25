@@ -1,4 +1,5 @@
 export interface Iregistration {
+ 
     customername: string;
     email: string;
     password: string;

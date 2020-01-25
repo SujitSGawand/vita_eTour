@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategorySubCategory } from '../i-category-sub-category';
 import { CategorySubCategoryService } from '../category-sub-category.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IItineraryPCD } from '../iitinerary-pcd';
 import { IPackageList } from '../ipackage-list';
-import { FormGroup } from '@angular/forms';
+import { FormGroup , NgForm, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -13,6 +13,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./package-complete-details.component.css']
 })
 export class PackageCompleteDetailsComponent implements OnInit {
+  
   packageList:IPackageList[];
   Ipcdays:IItineraryPCD[];
   a:IItineraryPCD;
@@ -22,11 +23,17 @@ export class PackageCompleteDetailsComponent implements OnInit {
   datepackid:number=parseInt(localStorage.getItem('datepackid'));
  
   
-  constructor(private _catsubcatservice:CategorySubCategoryService,private router:Router) { }
+  constructor(private _catsubcatservice:CategorySubCategoryService, private activer: ActivatedRoute,private router:Router) { }
 
-  onSubmit(bookingdatesubmit:FormGroup)
+  bookForm = new FormGroup({ date : new FormControl()});
+  bookNow()
   {
-    alert(bookingdatesubmit.value);
+    
+    let dateid:any = this.bookForm.get('date').value;
+    localStorage.setItem("dateid",dateid);
+    alert(dateid);
+    this.router.navigate(["/registration"]);
+   
   }
   
 

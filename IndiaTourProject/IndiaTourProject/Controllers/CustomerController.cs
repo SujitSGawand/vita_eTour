@@ -23,16 +23,36 @@ namespace IndiaTourProject.Controllers
         }
 
         // GET api/Customer/5
-        public CustomerDetail GetCustomerDetail(int id)
-        {
-            CustomerDetail customerdetail = db.CustomerDetails.Find(id);
-            if (customerdetail == null)
-            {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
-            }
+        //public CustomerDetail GetCustomerDetail(int id)
+        //{
+        //    CustomerDetail customerdetail = db.CustomerDetails.Find(id);
+        //    if (customerdetail == null)
+        //    {
+        //        throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+        //    }
 
-            return customerdetail;
+        //    return customerdetail;
+        //}
+        //public int GetCustomerDetail(string email)
+        //{
+        //    CustomerDetail customerdetail = db.CustomerDetails.Find(email);
+           
+           
+        //        return customerdetail.customerid;
+
+           
+        //}
+
+
+        public IQueryable<int> GetBookingDetail(string email)
+        {
+            var a = from cd1 in db.CustomerDetails where cd1.email==email select cd1.customerid;
+
+            return a;
         }
+
+       
+
 
         // PUT api/Customer/5
         public HttpResponseMessage PutCustomerDetail(int id, CustomerDetail customerdetail)

@@ -37,7 +37,7 @@ export class SubcategoryComponent implements OnInit {
     alert(this.id);
     this._catsubcatservice.GetCategorySubCategories().subscribe(data=>{this.categorysubcategories=data;
       this.a=this.isubcatDisp(this.categorysubcategories);
-      this.title=this.categorysubcategories[this.id-1]
+      this.title=this.categorysubcategories[this.id-1];
       console.log(this.a)}) ;
   }
 

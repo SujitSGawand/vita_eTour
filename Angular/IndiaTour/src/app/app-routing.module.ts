@@ -6,6 +6,7 @@ import { PackageCompleteDetailsComponent } from './package-complete-details/pack
 import { PackageListComponent } from './package-list/package-list.component';
 import { CustomerServiceService } from './customer-service.service';
 import { RegistrationComponent } from './registration/registration.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'subcat',component:SubcategoryComponent},
   {path:'packagedetails',component:PackageCompleteDetailsComponent},
   {path:'packagelist',component:PackageListComponent},
-  {path:'registration',component:RegistrationComponent}
+  {path:'registration',component:RegistrationComponent},
+  {path:'booking',component:BookingComponent}
 
 ];
 

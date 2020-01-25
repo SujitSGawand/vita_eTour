@@ -11,7 +11,7 @@ import { isDifferent } from '@angular/core/src/render3/util';
 })
 export class PackageListComponent implements OnInit {
   packageList:IPackageList[];
-  catsubid:number=parseInt(localStorage.getItem('catsubid'));
+  catsubid:number =parseInt(localStorage.getItem('catsubid'));
   a:IPackageList[];
   constructor(private _catsubcatservice:CategorySubCategoryService,private router:Router) { }
   
