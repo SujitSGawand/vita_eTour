@@ -3,11 +3,13 @@ import { Iregistration } from './iregistration';
 import { HttpClient } from '@angular/common/http';
 import { IPassengerDetails } from './ipassenger-details';
 import { BookingDetails } from './booking-details';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerServiceService {
+ 
   customer:Iregistration;
   passenger:IPassengerDetails;
   url="http://localhost:50153/api/";
@@ -31,6 +33,12 @@ export class CustomerServiceService {
   InitiateBooking(booking:BookingDetails)
   {
     return this.http.post(this.url+"BookingDetails",booking);
+  }
+
+  postpassenger(PassObj:IPassengerDetails)
+  {
+    console.log(PassObj);
+    return this.http.post(this.url+"PassengerDetails1",PassObj);
   }
 
 }

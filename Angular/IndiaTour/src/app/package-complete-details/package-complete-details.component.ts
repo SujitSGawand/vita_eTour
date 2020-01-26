@@ -28,12 +28,10 @@ export class PackageCompleteDetailsComponent implements OnInit {
   bookForm = new FormGroup({ date : new FormControl()});
   bookNow()
   {
-    
     let dateid:any = this.bookForm.get('date').value;
     localStorage.setItem("dateid",dateid);
     alert(dateid);
     this.router.navigate(["/registration"]);
-   
   }
   
 
@@ -44,5 +42,4 @@ export class PackageCompleteDetailsComponent implements OnInit {
       this._catsubcatservice.GetPackageList(this.id).subscribe(data=>{this.packageList=data;
       });
   }
-
 }

@@ -192,6 +192,7 @@
     <Compile Include="Controllers\ItineraryPCDController.cs" />
     <Compile Include="Controllers\PackageListController.cs" />
     <Compile Include="Controllers\PassengerDetails1Controller.cs" />
+    <Compile Include="Controllers\PriceDetails1Controller.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
