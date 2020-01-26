@@ -53,7 +53,8 @@ regObj : Iregistration;
     let email:any = this.regObj.email;
     alert(email);
     localStorage.setItem("passemail",email);
-    this.router.navigate(['/booking']);
+    //this.router.navigate(['/booking']);
+    
   }
   insertRecord(form: NgForm) {
     this._regservice.Postcustomer(form.value).subscribe(res => { this.restForm(form);})
